@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function HomePage(){
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Home</h1>
+      <p>Esta es una pagina de ejemplo para crear nuestro React Router</p>
+      <a href="/about">Ir a Sobre Nosotros</a>
     </>
   )
 }
 
+function About(){
+  return (
+    <>
+      <h1>About</h1>
+      <p>Hola! Mi nombre es Alejo y estoy creando un clon de React Router</p>
+      <a href="/">Ir a la home page</a>
+    </>
+  )
+}
+
+function App() {
+  const [currentPath, setCurrentPath]=useState(window.location.pathname);
+  return (
+    <main>
+      {currentPath == "/" && <HomePage/>}
+      {currentPath == "/about" && <About/>}
+    </main>
+  )
+}
+
 export default App
+
+
