@@ -7,7 +7,6 @@ const [currentPath, setCurrentPath]=useState(window.location.pathname);
   useEffect(()=>{
     const onLocationChange=()=>{
       setCurrentPath(window.location.pathname);
-      console.log(currentPath)
     }
 
     window.addEventListener(EVENTS.pushstate, onLocationChange);
@@ -16,7 +15,7 @@ const [currentPath, setCurrentPath]=useState(window.location.pathname);
     return ()=>{
       window.removeEventListener(EVENTS.popstate, onLocationChange);
     }
-  }, [])
+  }, [currentPath])
 
   const Page=routes.find(({path})=>path==currentPath)?.Component;
   return Page ? <Page /> : <DefaultComponent />
