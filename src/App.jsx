@@ -1,27 +1,12 @@
-import { useEffect, useState } from "react"
-import { EVENTS } from "./logic/consts";
-import { HomePage } from "./pages/home";
-import { About } from "./pages/About";
+
+import { ROUTES } from "./logic/consts";
+import { Router } from "./components/Router";
 
 
 function App() {
-  const [currentPath, setCurrentPath]=useState(window.location.pathname);
-  useEffect(()=>{
-    const onLocationChange=()=>{
-      setCurrentPath(window.location.pathname);
-    }
-
-    window.addEventListener(EVENTS.pushstate, onLocationChange);
-    window.addEventListener(EVENTS.popstate, onLocationChange);
-
-    return ()=>{
-      window.removeEventListener(EVENTS.popstate, onLocationChange);
-    }
-  }, [])
   return (
     <main>
-      {currentPath == "/" && <HomePage/>}
-      {currentPath == "/about" && <About/>}
+      <Router routes={ROUTES}></Router>
     </main>
   )
 }
