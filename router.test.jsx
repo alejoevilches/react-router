@@ -1,7 +1,9 @@
 import {describe, it, expect} from "vitest";
+import {render} from "@testing-library/react";
+import {Router} from "./src/components/Router"
 
 describe("Router", ()=>{
     it("should work", ()=>{
-        expect(1).toBe(1);
+        render(<Router routes={[]}/>)
     })
 })

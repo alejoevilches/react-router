@@ -27,7 +27,7 @@ const routesFromChildren = Children.map(children, ({props, type})=>{
     return isRoute ? props : null
   })
 
-  const routesToUse=routes.concat(routesFromChildren);
+  const routesToUse=routes.concat(routesFromChildren).filter(Boolean);
 
   console.log(routesToUse);
 
