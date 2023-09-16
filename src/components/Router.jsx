@@ -29,6 +29,8 @@ const routesFromChildren = Children.map(children, ({props, type})=>{
 
   const routesToUse=routes.concat(routesFromChildren);
 
+  console.log(routesToUse);
+
   const Page=routesToUse.find(({path}) =>{
     if (path===currentPath) return true
     const matchedURL=match(path, {decode: decodeURIComponent})
