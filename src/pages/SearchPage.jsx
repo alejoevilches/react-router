@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from "react"
 
-export default function SearchPage({routeParams}){
+export function SearchPage({routeParams}){
         useEffect(()=>{
             document.title=`Buscaste ${routeParams.query}`
         })
